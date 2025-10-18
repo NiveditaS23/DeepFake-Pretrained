@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+
+<head>
+  <title>Prediction Result</title>
+  <link rel="stylesheet" href="{% static 'css/styles1.css' %}">
+</head>
+
+<body>
+  <nav class="topnav">
+    <div class="som">
+      <!-- <div class="crop">
+        <img src="images/logoproject.png" alt="Donald Duck" />
+      </div>
+      <h1>FACEVERITY</h1> -->
+    </div>
+    <ul class="topnav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="">Chatbot</a></li>
+    </ul>
+  </nav>
+  <image class="BG" src="https://wallpapercave.com/wp/wp5957944.jpg" width="100%" height="100%"></image>
+  <div class="Prediction" id="prediction-result">
+    <h1>Prediction Result</h1>
+    <p>Video: {{ video_name }}</p>
+    <p>Prediction: {{ result }}</p>
+    <p>Confidence: {{ confidence }}</p>
+  </div>
+  <section id="chatbot" class="section chatbot" data-scroll-section>
+    <div class="chatbot-container">
+      <div class="chatbox" id="chatbox">
+        <div class="chatbox-messages" id="chatbox-messages"></div>
+        <input type="text" id="chat-input" placeholder="Type your question..." />
+        <button id="send-btn">Send</button>
+      </div>
+      <button class="chatbot-toggle" id="chatbot-toggle">💬 Chat</button>
+    </div>
+  </section>
+  <script>
+    // Simulating the result; replace these variables with values from your backend
+    const result = "{{ result }}"; // 'real' or 'fake'
+
+    // Get the Prediction div
+    const predictionDiv = document.getElementById("prediction-result");
+
+    // Apply the appropriate class based on the result
+    if (result.trim().toLowerCase() === "real") {
+      predictionDiv.classList.add("green");
+    } else if (result.trim().toLowerCase() === "fake") {
+      predictionDiv.classList.add("red");
+    }
+  </script>
+
+
+
+</body>
+
+</html>
